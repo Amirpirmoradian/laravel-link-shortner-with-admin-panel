@@ -52,10 +52,23 @@
 
         <div class="x_panel">
             <div class="x_title">
-                <h2>
-                    {{ __('لینک های کوتاه شده') }}
-                </h2>
-
+                <br>
+                <br>
+                <form class="form-horizontal form-label-left" action="{{ route('admin-links-list') }}" method="GET">
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" style="direction:ltr;text-align:right" name="q" placeholder="{{ __('جستجو') }}"
+                                value="{{ request()->input('q', '') }}">
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <button type="submit" class="btn btn-success">
+                                جستجو
+                            </button>
+                        </div>
+                        
+                    </div>
+                    
+                </form>
                 <div class="clearfix"></div>
             </div>
 

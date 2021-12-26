@@ -16,7 +16,12 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $links = DB::table('short_urls')->paginate(15);
+        $q = request()->input('q', false);
+        $links = DB::table('short_urls');
+        if($q){
+            $links = $links->where('destination_url', 'LIKE', '%'.$q.'%')->orWhere('url_key', 'LIKE', '%'.$q.'%')->orWhere('default_short_url', 'LIKE', '%'.$q.'%');
+        }
+        $links = $links->paginate(15);
         return view('admin.links.index', compact('links'));
     }
 
