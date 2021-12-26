@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'shorten_link',
+        'redirect_to',
+        'active',
+        'created_by',
+    ];
 }

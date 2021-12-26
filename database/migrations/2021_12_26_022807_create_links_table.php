@@ -15,6 +15,10 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
+            $table->text('shorten_link')->unique();
+            $table->text('redirect_to');
+            $table->boolean('active')->default('false');
+            $table->integer('created_by');
             $table->timestamps();
         });
     }
