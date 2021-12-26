@@ -17,7 +17,7 @@ class CreateLinksTable extends Migration
             $table->id();
             $table->text('shorten_link')->unique();
             $table->text('redirect_to');
-            $table->boolean('active')->default('false');
+            $table->boolean('active')->default(true);
             $table->integer('created_by');
             $table->timestamps();
         });
