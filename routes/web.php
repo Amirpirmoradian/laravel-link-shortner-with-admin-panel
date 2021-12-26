@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,10 @@ Route::redirect('/', '/admin', 301);
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', function(){
-
+        return view('admin.index');
     });
 });
 Auth::routes();
+
+//set get method for logout
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
