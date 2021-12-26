@@ -15,7 +15,7 @@ return [
     | AshAllenDesign\ShortURL\Controllers\ShortURLController
     |
     */
-    'disable_default_route' => false,
+    'disable_default_route' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     |
     */
     'tracking'              => [
-        'default_enabled' => true,
+        'default_enabled' => false,
 
         'fields' => [
             'ip_address'               => true,
@@ -109,6 +109,5 @@ return [
     |
     */
     'validate_config' => true,
-    'prefix' => '',
 
 ];

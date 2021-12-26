@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/{shortURLKey}', '\AshAllenDesign\ShortURL\Controllers\ShortURLController');
 
-Route::redirect('/', '/admin', 301);
+Route::redirect('/', '/admin/links', 301);
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/', function(){
-        return view('admin.index');
-    });
+    Route::redirect('/', '/admin/links', 301);
 
     Route::resource('/links', LinkController::class, [
         'names' => [
@@ -31,8 +30,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
             'update' => 'admin-links-update',
         ],
     ]);
+    
 });
 Auth::routes();
 
 //set get method for logout
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('{shortURLKey}', '\AshAllenDesign\ShortURL\Controllers\ShortURLController');

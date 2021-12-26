@@ -99,6 +99,7 @@
                                             $shortURL = str_replace('//' , '/', $link->default_short_url);
                                             $shortURL = str_replace('http:/' , 'http://', $shortURL);
                                             $shortURL = str_replace('https:/' , 'https://', $shortURL);
+                                            $shortURL = str_replace('/short/' , '/', $shortURL);
                                         @endphp 
                                         <a href="{{ $shortURL }}" target="_blank">{{ $shortURL }}</a>
                                     </td>
