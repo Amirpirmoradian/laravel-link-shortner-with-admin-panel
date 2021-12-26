@@ -16,7 +16,7 @@ class CreateLinksTable extends Migration
         Schema::create('links', function (Blueprint $table) {
             $table->id();
             $table->string('shorten_link', 500)->unique();
-            $table->text('redirect_to');
+            $table->text('link');
             $table->boolean('active')->default(true);
             $table->integer('created_by');
             $table->timestamps();

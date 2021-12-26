@@ -11,7 +11,7 @@ class Link extends Model
 
     protected $fillable = [
         'shorten_link',
-        'redirect_to',
+        'link',
         'active',
         'created_by',
     ];

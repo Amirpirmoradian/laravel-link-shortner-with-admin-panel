@@ -66,7 +66,12 @@
                         <div class="menu_section">
                             <h3>{{ __('منو') }}</h3>
                             <ul class="nav side-menu">
-                                
+                                <li>
+                                    <a href="{{ route('admin-links-list') }}">
+                                        <i class="fas fa-clipboard-list-check"></i>
+                                        {{ __('لینک ها') }}
+                                    </a>
+                                </li>
                             </ul>
                         </div>
 

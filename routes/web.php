@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LinkController;
+use AshAllenDesign\ShortURL\Facades\ShortURL;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +22,15 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', function(){
         return view('admin.index');
     });
+
+    Route::resource('/links', LinkController::class, [
+        'names' => [
+            'index' => 'admin-links-list',
+            'edit' => 'admin-links-edit',
+            'destroy' => 'admin-links-delete',
+            'update' => 'admin-links-update',
+        ],
+    ]);
 });
 Auth::routes();
 
